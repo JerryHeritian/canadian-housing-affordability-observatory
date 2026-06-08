@@ -52,3 +52,33 @@ Month + Region
 
 ### Justification
 Used to measure housing affordability across Canadian regions. Benchmark Price is preferred over Average Sale Price because it better reflects the value of a typical property and reduces distortions caused by luxury or atypical sales.
+
+
+
+
+
+
+
+
+## Dataset #4 - Immigration
+
+### Source
+Statistics Canada
+
+### Table
+17-10-0040-01
+
+### Business Name
+Quarterly Immigration Components
+
+### Description
+Quarterly estimates of immigrants, emigrants, returning emigrants, temporary emigration and non-permanent residents for Canada and provinces.
+
+### Raw Grain
+Province + Quarter
+
+### Gold Grain
+Province + Quarter
+
+### Justification
+Used to analyze the relationship between immigration and housing affordability indicators such as house prices and rents.
