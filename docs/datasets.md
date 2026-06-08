@@ -55,30 +55,54 @@ Used to measure housing affordability across Canadian regions. Benchmark Price i
 
 
 
-
-
-
-
-
-## Dataset #4 - Immigration
+## Dataset #3 — Rental Prices
 
 ### Source
 Statistics Canada
+
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=4610009201
+
+### Table
+46-10-0092-01
+
+### Business Name
+Average Asking Rent
+
+### Description
+Quarterly Statistics Canada dataset providing average asking rents by rental unit type for Canadian Census Metropolitan Areas (CMAs).
+
+### Raw Grain
+Quarter + CMA + Rental Unit Type
+
+### Gold Grain
+Quarter + CMA
+
+### Justification
+Used to measure rental affordability across major Canadian metropolitan areas. This dataset complements CREA housing prices by providing rental market trends and supports analysis of the relationship between rents, immigration, and interest rates.
+
+
+
+## Dataset #4 — Immigration
+
+### Source
+Statistics Canada
+
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710004001
 
 ### Table
 17-10-0040-01
 
 ### Business Name
-Quarterly Immigration Components
+International Migration Components
 
 ### Description
-Quarterly estimates of immigrants, emigrants, returning emigrants, temporary emigration and non-permanent residents for Canada and provinces.
+Quarterly estimates of immigration and other international migration components for Canada and provinces.
 
 ### Raw Grain
-Province + Quarter
+Quarter + Province
 
 ### Gold Grain
-Province + Quarter
+Quarter + Province
 
 ### Justification
-Used to analyze the relationship between immigration and housing affordability indicators such as house prices and rents.
+Used to measure population growth pressure on the Canadian housing market. This dataset supports analysis of the relationship between immigration, housing prices, and rental affordability.
