@@ -62,6 +62,9 @@ Statistics Canada
 
 https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=4610009201
 
+### File
+Rent_price_2019-2025.csv
+
 ### Table
 46-10-0092-01
 
@@ -88,6 +91,9 @@ Used to measure rental affordability across major Canadian metropolitan areas. T
 Statistics Canada
 
 https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710004001
+
+### File
+Immigration_2000-2025.csv
 
 ### Table
 17-10-0040-01
