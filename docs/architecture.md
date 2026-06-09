@@ -57,8 +57,7 @@ Data is cleaned, standardized and prepared for analytical modeling.
 - Standardize dates
 - Standardize region names
 - Convert numeric fields
-- Unpivot housing price categories
-- Unpivot rental unit categories
+- Convert source datasets into fact and dimension structures
 - Prepare dimension tables
 
 ---
