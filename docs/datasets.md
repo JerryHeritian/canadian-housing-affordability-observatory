@@ -18,7 +18,7 @@ Target Rate (Policy Interest Rate)
 Official Bank of Canada policy interest rate.
 
 ### Raw Grain
-Rate change date
+Date
 
 ### Gold Grain
 Month
@@ -65,9 +65,6 @@ https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=4610009201
 ### File
 Rent_price_2019-2025.csv
 
-### Table
-46-10-0092-01
-
 ### Business Name
 Average Asking Rent
 
@@ -99,7 +96,7 @@ Immigration_2000-2025.csv
 17-10-0040-01
 
 ### Business Name
-International Migration Components
+Immigration
 
 ### Description
 Quarterly estimates of immigration and other international migration components for Canada and provinces.
@@ -111,4 +108,4 @@ Quarter + Province
 Quarter + Province
 
 ### Justification
-Used to measure population growth pressure on the Canadian housing market. This dataset supports analysis of the relationship between immigration, housing prices, and rental affordability.
+Used to analyze the relationship between immigration levels, housing prices, and rental affordability.
