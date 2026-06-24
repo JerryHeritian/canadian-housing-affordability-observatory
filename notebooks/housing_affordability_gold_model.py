@@ -5,7 +5,7 @@
 # 
 # null
 
-# In[60]:
+# In[1]:
 
 
 # Read gold table to see schema
@@ -21,7 +21,7 @@ df_rates.printSchema()
 df_immigration.printSchema()
 
 
-# In[61]:
+# In[2]:
 
 
 # Rename columns
@@ -41,7 +41,7 @@ df_immigration = df_immigration \
     .withColumnRenamed("quarter_number", "quarter")
 
 
-# In[62]:
+# In[3]:
 
 
 # Rental + housing price
@@ -53,7 +53,7 @@ df_fact_base = df_rental.join(
 )
 
 
-# In[63]:
+# In[4]:
 
 
 # Add interest rates
@@ -65,7 +65,7 @@ df_fact_base = df_fact_base.join(
 )
 
 
-# In[ ]:
+# In[5]:
 
 
 # Add immigration
@@ -77,7 +77,20 @@ df_fact = df_fact_base.join(
 )
 
 
-# In[70]:
+# In[6]:
+
+
+# Adding date key
+
+from pyspark.sql.functions import col, lit, concat
+
+df_fact = df_fact.withColumn(
+    "date_key",
+    concat(col("year"), lit("_Q"), col("quarter"))
+)
+
+
+# In[8]:
 
 
 # save table
@@ -85,10 +98,11 @@ df_fact = df_fact_base.join(
 df_fact.write \
     .format("delta") \
     .mode("overwrite") \
+    .option("overwriteSchema", "true") \
     .saveAsTable("fact_housing_affordability")
 
 
-# In[71]:
+# In[9]:
 
 
 spark.read.table("fact_housing_affordability").show(10)
