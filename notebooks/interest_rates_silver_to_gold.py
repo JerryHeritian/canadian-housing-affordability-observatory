@@ -5,7 +5,7 @@
 # 
 # null
 
-# In[1]:
+# In[18]:
 
 
 # Welcome to your new notebook
@@ -14,7 +14,7 @@ df = spark.read.table("silver_interest_rates")
 df.show(5)
 
 
-# In[2]:
+# In[19]:
 
 
 # Create year, quarter, month column within gold dataframe
@@ -29,21 +29,44 @@ df_gold = df \
 df_gold.show(10)
 
 
-# In[3]:
+# In[20]:
+
+
+# Aggregate average of interest rate for each quarter
+
+from pyspark.sql.functions import avg
+
+df_gold_interest_rate = df_gold \
+    .groupBy("year", "quarter") \
+    .agg(
+        avg("interest_rate").alias("interest_rate")
+    )
+
+df_gold_interest_rate.show(10)
+
+
+# In[21]:
+
+
+df_gold_interest_rate.printSchema()
+
+
+# In[22]:
 
 
 # Save gold table
 
-df_gold.write \
+df_res.write \
     .format("delta") \
     .mode("overwrite") \
+    .option("overwriteSchema", "true") \
     .saveAsTable("gold_interest_rates")
 
 
-# In[4]:
+# In[23]:
 
 
-spark.read.table("gold_interest_rates").show(10)
+spark.read.table("gold_interest_rates").show(20)
 
 
 # In[ ]:
