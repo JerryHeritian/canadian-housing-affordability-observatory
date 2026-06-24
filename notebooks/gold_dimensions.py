@@ -5,7 +5,7 @@
 # 
 # null
 
-# In[2]:
+# In[1]:
 
 
 # read fact table
@@ -13,7 +13,7 @@
 df_fact = spark.read.table("fact_housing_affordability")
 
 
-# In[4]:
+# In[2]:
 
 
 # Adding column quarter_year
@@ -27,17 +27,17 @@ df_dim_date = df_fact.select(
 
 df_dim_date = df_dim_date.withColumn(
     "year_quarter",
-    concat(
-        col("year"),
-        lit("-Q"),
-        col("quarter")
-    )
+    concat(col("year"), lit("-Q"), col("quarter"))
+) \
+.withColumn(
+    "date_key",
+    concat(col("year"), lit("_Q"), col("quarter"))
 )
 
 df_dim_date.show(5)
 
 
-# In[6]:
+# In[3]:
 
 
 # Save table dim date
@@ -45,6 +45,7 @@ df_dim_date.show(5)
 df_dim_date.write \
     .format("delta") \
     .mode("overwrite") \
+    .option("overwriteSchema", "true") \
     .saveAsTable("dim_date")
 
 
