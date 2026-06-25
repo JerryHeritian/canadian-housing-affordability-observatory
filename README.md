@@ -150,6 +150,17 @@ Business-ready datasets optimized for reporting and analytics.
 * Population vs Housing Supply
 * Interest Rates vs Housing Market
 
+## Semantic Model
+
+The project follows a Star Schema composed of:
+
+- Fact table: `fact_housing_affordability`
+- Dimensions:
+  - `dim_date`
+  - `dim_geography`
+
+![Semantic Model](screenshots/powerbi/semantic_model.png)
+
 
 ## Author
 
