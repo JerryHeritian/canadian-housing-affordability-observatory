@@ -35,7 +35,7 @@ df_rental = df_rental \
 
 df_housing = df_housing \
     .withColumnRenamed("Apartment", "apartment_sale") \
-    .withColumnRenamed("house", "house_sale")    
+    .withColumnRenamed("house", "house_sale")
 
 df_immigration = df_immigration \
     .withColumnRenamed("quarter_number", "quarter")
@@ -90,7 +90,7 @@ df_fact = df_fact.withColumn(
 )
 
 
-# In[8]:
+# In[7]:
 
 
 # save table
@@ -102,7 +102,7 @@ df_fact.write \
     .saveAsTable("fact_housing_affordability")
 
 
-# In[9]:
+# In[8]:
 
 
 spark.read.table("fact_housing_affordability").show(10)
