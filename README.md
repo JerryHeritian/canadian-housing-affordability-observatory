@@ -162,6 +162,35 @@ The project follows a Star Schema composed of:
 ![Semantic Model](screenshots/powerbi/semantic_model.png)
 
 
+## ELT Orchestration Pipeline
+
+The project implements a multi-stage ELT orchestration using Microsoft Fabric Data Pipelines.
+
+### Pipeline architecture
+
+- Four domain-specific pipelines run in parallel:
+  - Housing Prices
+  - Rental Prices
+  - Interest Rates
+  - Immigration
+
+- Once all pipelines complete successfully, the Gold Model pipeline generates:
+  - Dimension tables
+  - Housing Affordability fact table
+
+- Finally, the Semantic Model is refreshed automatically so Power BI dashboards always display the latest data.
+
+### Features
+
+- Medallion Architecture (Bronze → Silver → Gold)
+- Parallel pipeline execution
+- Dependency management
+- Dataset-specific error handling
+- Automated semantic model refresh
+- Monthly scheduled execution
+
+
+
 ## Author
 
 Jerry Heritiana
