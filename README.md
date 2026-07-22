@@ -1,200 +1,290 @@
-# 🇨🇦 Canadian Housing Affordability Observatory
+# 🏠 Canadian Housing Affordability Observatory
 
-# canadian-housing-affordability-observatory
-End-to-end Microsoft Fabric project analyzing housing affordability trends across Canada.
+> **An end-to-end Microsoft Fabric Data Engineering project analyzing housing affordability trends across Canada.**
 
-## Overview
+<p align="center">
 
-Canadian Housing Affordability Observatory is an end-to-end Microsoft Fabric project designed to analyze housing affordability trends across Canada.
+Microsoft Fabric • OneLake • Lakehouse • PySpark • Data Pipelines • Power BI • GitHub
 
-The project combines housing, immigration, demographic and economic data from multiple Canadian public sources to understand how population growth, immigration, housing supply and interest rates impact housing affordability.
-
----
-
-## Business Problem
-
-Housing affordability has become one of the most important challenges in Canada.
-
-This project aims to answer questions such as:
-
-* How have housing prices evolved across Canadian provinces?
-* What is the relationship between immigration and housing demand?
-* How does population growth affect housing affordability?
-* What is the impact of interest rates on the housing market?
-* Are housing construction rates keeping pace with population growth?
+</p>
 
 ---
 
-## Project Objectives
+# 📖 Project Overview
 
-* Build an end-to-end data platform using Microsoft Fabric
-* Ingest data from multiple public Canadian sources
-* Implement a Medallion Architecture (Bronze, Silver, Gold)
-* Transform and enrich data using Spark
-* Create business-ready datasets
-* Develop interactive Power BI dashboards
-* Publish and document a complete portfolio project
+The **Canadian Housing Affordability Observatory** is an end-to-end Microsoft Fabric project designed to collect, transform, model and visualize Canadian housing affordability indicators.
+
+The project combines multiple Canadian public datasets to analyze housing prices, rental markets, immigration and interest rates through a modern Data Engineering architecture based on the **Medallion Architecture (Bronze → Silver → Gold)**.
+
+The final analytical model is exposed through an interactive **Power BI** report.
 
 ---
 
-## Data Sources
+# 🎯 Project Objectives
 
-### Statistics Canada (StatCan)
-
-* Population
-* Immigration
-* Demographic indicators
-* Inflation
-
-### Canada Mortgage and Housing Corporation (CMHC)
-
-* Housing starts
-* Vacancy rates
-* Rental market indicators
-
-### Bank of Canada
-
-* Interest rates
-* Economic indicators
+- Build a complete Microsoft Fabric Data Engineering solution
+- Implement a Medallion Architecture (Bronze, Silver, Gold)
+- Automate ELT workflows using Microsoft Fabric Pipelines
+- Transform data using PySpark notebooks
+- Design a Star Schema optimized for analytics
+- Develop interactive Power BI dashboards
+- Publish a production-style portfolio project
 
 ---
 
-## Technology Stack
+# 🏗️ Solution Architecture
 
-* Microsoft Fabric
-* Data Factory
-* OneLake
-* Lakehouse
-* Apache Spark
-* Power BI
-* GitHub
+<p align="center">
+<img src="screenshots/architecture/end_to_end_architecture.png" width="900">
+</p>
 
----
+The solution follows a modern Microsoft Fabric architecture:
 
-## Architecture
-
-```text
-Sources
-(SQL / API / CSV)
-
-↓
-
-Data Factory
-
-↓
-
-OneLake
-
-↓
-
-Lakehouse
-
-├── Bronze
-├── Silver
-└── Gold
-
-↓
-
+```
+Public Data Sources
+        │
+        ▼
+Fabric Pipelines
+        │
+        ▼
+OneLake Bronze
+        │
+        ▼
+PySpark Transformations
+        │
+        ▼
+OneLake Silver
+        │
+        ▼
+Business Modeling
+        │
+        ▼
+Gold Layer
+        │
+        ▼
+Semantic Model
+        │
+        ▼
 Power BI
-
-↓
-
-Dashboards
 ```
 
 ---
 
-## Medallion Architecture
+# ⭐ Key Features
 
-### Bronze Layer
-
-Raw data from source systems.
-
-### Silver Layer
-
-Cleaned, standardized and validated data.
-
-### Gold Layer
-
-Business-ready datasets optimized for reporting and analytics.
+- ✅ End-to-End Data Engineering Project
+- ✅ Microsoft Fabric
+- ✅ OneLake Storage
+- ✅ Lakehouse Architecture
+- ✅ Medallion Architecture
+- ✅ PySpark Data Transformation
+- ✅ Automated ELT Pipelines
+- ✅ Star Schema
+- ✅ Semantic Model
+- ✅ Interactive Power BI Dashboards
 
 ---
 
-## Planned Dashboards
+# 🗂 Repository Structure
 
-### Executive Dashboard
+```
+canadian-housing-affordability-observatory
 
-* Housing affordability overview
-* Key indicators
-* National trends
+├── architecture/
+├── docs/
+├── notebooks/
+├── pipelines/
+├── powerbi/
+├── screenshots/
+├── sql/
+├── README.md
+└── LICENSE
+```
 
-### Housing Dashboard
+---
 
-* Housing prices
-* Rental market
-* Vacancy rates
+# 🛠 Technology Stack
 
-### Immigration Dashboard
+| Layer | Technology |
+|--------|------------|
+| Data Platform | Microsoft Fabric |
+| Storage | OneLake |
+| Data Warehouse | Lakehouse |
+| Processing | PySpark |
+| Orchestration | Fabric Data Pipelines |
+| Modeling | Semantic Model |
+| Visualization | Power BI |
+| Version Control | Git & GitHub |
 
-* Immigration trends
-* Provincial distribution
+---
 
-### Population Dashboard
+# 📊 Data Sources
 
-* Population growth
-* Demographic trends
+| Source | Dataset |
+|---------|----------|
+| Statistics Canada | Housing Sale Prices |
+| Statistics Canada | Rental Prices |
+| Statistics Canada | Immigration |
+| Bank of Canada | Interest Rates |
 
-### Correlation Dashboard
+---
 
-* Immigration vs Housing
-* Population vs Housing Supply
-* Interest Rates vs Housing Market
+# 🔄 Pipeline Orchestration
 
-## Semantic Model
+The ELT workflow is orchestrated using **Microsoft Fabric Data Pipelines**.
 
-The project follows a Star Schema composed of:
+## Workflow
 
-- Fact table: `fact_housing_affordability`
-- Dimensions:
-  - `dim_date`
-  - `dim_geography`
+- Housing Prices Pipeline
+- Rental Prices Pipeline
+- Interest Rates Pipeline
+- Immigration Pipeline
 
-![Semantic Model](screenshots/powerbi/semantic_model.png)
+↓
 
+Gold Model Generation
 
-## ELT Orchestration Pipeline
+↓
 
-The project implements a multi-stage ELT orchestration using Microsoft Fabric Data Pipelines.
+Semantic Model Refresh
 
-### Pipeline architecture
+↓
 
-- Four domain-specific pipelines run in parallel:
-  - Housing Prices
-  - Rental Prices
-  - Interest Rates
-  - Immigration
-
-- Once all pipelines complete successfully, the Gold Model pipeline generates:
-  - Dimension tables
-  - Housing Affordability fact table
-
-- Finally, the Semantic Model is refreshed automatically so Power BI dashboards always display the latest data.
+Power BI Dashboards
 
 ### Features
 
-- Medallion Architecture (Bronze → Silver → Gold)
-- Parallel pipeline execution
+- Parallel execution
 - Dependency management
-- Dataset-specific error handling
-- Automated semantic model refresh
+- Error handling
+- Automated Semantic Model Refresh
 - Monthly scheduled execution
 
+<p align="center">
 
+<img src="screenshots/pipeline/master_pipeline.png" width="900">
 
-## Author
+</p>
 
-Jerry Heritiana
+---
 
-Data Engineering & Analytics Portfolio Project
+# ⭐ Medallion Architecture
 
-Canada - Québec
+## 🥉 Bronze
+
+Raw data ingestion from public sources.
+
+## ⚪ Silver
+
+Cleaning, validation and standardization using PySpark.
+
+## 🟡 Gold
+
+Business-ready analytical datasets optimized for reporting.
+
+---
+
+# 📐 Semantic Model
+
+The analytical model follows a **Star Schema**.
+
+### Fact Table
+
+- fact_housing_affordability
+
+### Dimensions
+
+- dim_date
+- dim_geography
+
+<p align="center">
+
+<img src="screenshots/powerbi/semantic_model.png" width="850">
+
+</p>
+
+---
+
+# 📈 Power BI Report
+
+## Executive Dashboard
+
+![Executive Dashboard](screenshots/powerbi/executive_dashboard.png)
+
+---
+
+## Housing Market Analysis
+
+![Housing](screenshots/powerbi/housing_market_analysis.png)
+
+---
+
+## Rental Market Analysis
+
+![Rental](screenshots/powerbi/rental_market_analysis.png)
+
+---
+
+## Demographic Analysis
+
+![Demographic](screenshots/powerbi/demographic_analysis.png)
+
+---
+
+## Project Overview
+
+![Project Overview](screenshots/powerbi/project_overview.png)
+
+---
+
+# 📄 Power BI Report (PDF)
+
+A static version of the report is available in:
+
+```
+powerbi/canadian_housing_affordability_observatory.pdf
+```
+
+---
+
+# 🚀 Getting Started
+
+Clone the repository
+
+```bash
+git clone https://github.com/JerryHeritian/canadian-housing-affordability-observatory.git
+```
+
+Open the Microsoft Fabric workspace.
+
+Run the ingestion pipelines.
+
+Execute the PySpark notebooks.
+
+Refresh the Semantic Model.
+
+Open the Power BI report.
+
+---
+
+# 🔮 Future Improvements
+
+- Near real-time data ingestion
+- Additional economic indicators
+- Predictive analytics using Machine Learning
+- Fabric Data Activator integration
+- CI/CD deployment
+
+---
+
+# 👨‍💻 Author
+
+**Jerry Heritiana**
+
+Data Engineer | Microsoft Fabric | PySpark | Power BI
+
+📍 Québec, Canada
+
+**LinkedIn**
+
+https://www.linkedin.com/in/jerry-heritiana-9b6139178/
